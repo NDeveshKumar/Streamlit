@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
-
+#this is title
 st.title("Employee Manager Relation")
-df = pd.read_csv("data/employee.csv",header =0).convert_dtypes()
+df = pd.read_csv("App/Data/employee.csv",header =0).convert_dtypes()
 
 st.dataframe(df)
 
@@ -12,4 +12,5 @@ for _, row in df.iterrows():
         edges+=f'\t"{row.iloc[0]}" -> "{row.iloc[1]}";\n' 
 
 d = f'digraph{{\n{edges}}}'
+
 st.graphviz_chart(d)
